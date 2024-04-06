@@ -1,10 +1,10 @@
 package entidades;
 
 
-public class Atividade extends Entidade{
+public class Atividade{
     private int duracao;
     private boolean hard;
-    private int calorias;
+    private int caloriasConsumidas;
     private boolean profissional;
     private int mediaCardio;
     
@@ -12,7 +12,7 @@ public class Atividade extends Entidade{
     public Atividade() {
         this.duracao = 0;
         this.hard = false;
-        this.calorias = 0;
+        this.caloriasConsumidas = 0;
         this.profissional = false;
         this.mediaCardio = 0;
     }
@@ -20,15 +20,15 @@ public class Atividade extends Entidade{
     public Atividade(int duracao) {
         this.duracao = duracao;
         this.hard = false;
-        this.calorias = 0;
+        this.caloriasConsumidas = 0;
         this.profissional = false;
         this.mediaCardio = 0;
     }
     
-    public Atividade(int duracao,boolean hard,int calorias,boolean profissional,int mediaCardio){
+    public Atividade(int duracao,boolean hard,int caloriasConsumidas,boolean profissional,int mediaCardio){
         this.duracao = duracao;
         this.hard = hard;
-        this.calorias = calorias;
+        this.caloriasConsumidas = caloriasConsumidas;
         this.profissional = profissional;
         this.mediaCardio = mediaCardio;
     }
@@ -46,11 +46,11 @@ public class Atividade extends Entidade{
     public void setHard(boolean hard) {
         this.hard = hard;
     }
-    public int getCalorias() {
-        return calorias;
+    public int getCaloriasConsumidas() {
+        return caloriasConsumidas;
     }
-    public void setCalorias(int calorias) {
-        this.calorias = calorias;
+    public void setCaloriasConsumidas(int caloriasConsumidas) {
+        this.caloriasConsumidas = caloriasConsumidas;
     }
     public boolean isProfissional() {
         return profissional;
@@ -67,7 +67,7 @@ public class Atividade extends Entidade{
     
     @Override
     public String toString() {
-        return "Atividade [duracao=" + duracao + ", hard=" + hard + ", calorias=" + calorias + ", profissional="
+        return "Atividade [duracao=" + duracao + ", hard=" + hard + ", caloriasConsumidas=" + caloriasConsumidas + ", profissional="
                 + profissional + ", mediaCardio=" + mediaCardio + "]";
     }
 

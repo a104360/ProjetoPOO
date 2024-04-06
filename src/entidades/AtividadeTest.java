@@ -9,47 +9,41 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class AtividadeTest {
     @Test
-    void testGetCalorias() {
-        Atividade a = new Atividade();
-        
-        assertEquals(a.getCalorias(),0);
-
-        a.setCalorias(1000);
-
-        assertEquals(a.getCalorias(),1000);
-        assertNotEquals(a.getCalorias(),0);
+    void testGetCaloriasConsumidas() {
+        Atividade a = new Atividade(10,true,1000,false,500);
+        assertEquals(a.getCaloriasConsumidas(),1000);
     }
 
     @Test
     void testGetDuracao() {
-        Atividade a = new Atividade();
-        assertEquals(a.getDuracao(),0);
+        Atividade a = new Atividade(10,true,1000,false,500);
+        assertEquals(a.getDuracao(),10);
     }
 
     @Test
     void testGetmediaCardio() {
-        Atividade a = new Atividade();
-        assertEquals(a.getmediaCardio(),0);
+        Atividade a = new Atividade(10,true,1000,false,500);
+        assertEquals(a.getmediaCardio(),500);
     }
 
     @Test
     void testIsHard() {
-        Atividade a = new Atividade();
+        Atividade a = new Atividade(10,false,1000,false,500);
         assertFalse(a.isHard());
     }
 
     @Test
     void testIsProfissional() {
-        Atividade a = new Atividade();
+        Atividade a = new Atividade(10,true,1000,false,500);
         assertFalse(a.isProfissional());
     }
 
     @Test
-    void testSetCalorias() {
+    void testSetCaloriasConsumidas() {
         Atividade a = new Atividade(10,true,1000,false,500);
-        assertEquals(a.getCalorias(),1000);
-        a.setCalorias(10);
-        assertEquals(a.getCalorias(),10);
+        assertEquals(a.getCaloriasConsumidas(),1000);
+        a.setCaloriasConsumidas(10);
+        assertEquals(a.getCaloriasConsumidas(),10);
     }
 
     @Test
@@ -71,16 +65,23 @@ public class AtividadeTest {
 
     @Test
     void testSetProfissional() {
-
+        Atividade a = new Atividade(10,true,1000,false,500);
+        assertFalse(a.isProfissional());
+        a.setProfissional(true);
+        assertTrue(a.isProfissional());
     }
 
     @Test
     void testSetmediaCardio() {
-
+        Atividade a = new Atividade(10,true,1000,false,500);
+        assertNotEquals(a.getCaloriasConsumidas(),23);
+        a.setCaloriasConsumidas(23);
+        assertEquals(a.getCaloriasConsumidas(), 23);
     }
 
     @Test
     void testToString() {
-
+        Atividade a = new Atividade(10,true,1000,false,500);
+        assertEquals(a.toString(),"Atividade [duracao=10, hard=" + a.isHard() + ", caloriasConsumidas=1000, profissional="+ a.isProfissional() +", mediaCardio=500]");
     }
 }
