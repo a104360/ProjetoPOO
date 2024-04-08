@@ -1,5 +1,6 @@
 package entidades;
 
+import java.time.LocalDate;
 
 public class Atividade{
     private int duracao;
@@ -7,6 +8,8 @@ public class Atividade{
     private int caloriasConsumidas;
     private boolean profissional;
     private int mediaCardio;
+    private int userId;
+    private LocalDate data;
     
     
     public Atividade() {
@@ -15,22 +18,28 @@ public class Atividade{
         this.caloriasConsumidas = 0;
         this.profissional = false;
         this.mediaCardio = 0;
+        this.userId = 0;
+        this.data = LocalDate.now();
     }
     
-    public Atividade(int duracao) {
+    public Atividade(int duracao, LocalDate data, int userId) {
         this.duracao = duracao;
         this.hard = false;
         this.caloriasConsumidas = 0;
         this.profissional = false;
         this.mediaCardio = 0;
+        this.userId = userId;
+        this.data = LocalDate.of(2024,4,8);
     }
     
-    public Atividade(int duracao,boolean hard,int caloriasConsumidas,boolean profissional,int mediaCardio){
+    public Atividade(int duracao,boolean hard,int caloriasConsumidas,boolean profissional,int mediaCardio,int userId, LocalDate data){
         this.duracao = duracao;
         this.hard = hard;
         this.caloriasConsumidas = caloriasConsumidas;
         this.profissional = profissional;
         this.mediaCardio = mediaCardio;
+        this.userId = userId;
+        this.data = LocalDate.of(2024,4,8);
     }
 
 
@@ -65,12 +74,30 @@ public class Atividade{
         this.mediaCardio = mediaCardio;
     }
     
-    @Override
-    public String toString() {
-        return "Atividade [duracao=" + duracao + ", hard=" + hard + ", caloriasConsumidas=" + caloriasConsumidas + ", profissional="
-                + profissional + ", mediaCardio=" + mediaCardio + "]";
+    
+
+    public int getUserId() {
+        return userId;
     }
 
-    
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Atividade [duracao=" + duracao + ", hard=" + hard + ", caloriasConsumidas=" + caloriasConsumidas
+                + ", profissional=" + profissional + ", mediaCardio=" + mediaCardio + ", userId=" + userId + ", data="
+                + data + "]";
+    }
+   
 
 }
