@@ -7,6 +7,4 @@ public class Series extends Atividade{
     private int repeticoes;
     private int caloriasSerie;
 
-    
-
 }

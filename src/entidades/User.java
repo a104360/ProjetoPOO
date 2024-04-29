@@ -4,6 +4,10 @@ package entidades;
 public class User{
     private int id;
     private String nome;
+    private int altura;
+    private int peso;
+    private int sexo;
+    private int idade;
     private String morada;
     private String email;
     private char tipo; // a = amador | p = profissional | o = ocasional
@@ -77,7 +81,7 @@ public class User{
         this.tipo = tipo;
     }
     public int getMediaCardio() {
-        return mediaCardio;
+        return mediaCardio;2866.325
     }
     public void setMediaCardio(int mediaCardio) {
         this.mediaCardio = mediaCardio;
@@ -88,6 +92,38 @@ public class User{
     public void setCaloriasDiarias(int caloriasDiarias) {
         this.caloriasDiarias = caloriasDiarias;
     }
+    
+    public int getAltura() {
+        return altura;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+
+    public int getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(int sexo) {
+        this.sexo = sexo;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
 
     @Override
     public int hashCode() {
@@ -95,6 +131,10 @@ public class User{
         int result = 1;
         result = prime * result + id;
         result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+        result = prime * result + altura;
+        result = prime * result + peso;
+        result = prime * result + sexo;
+        result = prime * result + idade;
         result = prime * result + ((morada == null) ? 0 : morada.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + tipo;
@@ -102,41 +142,29 @@ public class User{
         result = prime * result + caloriasDiarias;
         return result;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) // Referencias iguais
-        return true; 
-        if (obj == null) // Objeto ao qual comparamos this é nulo
-        return false;
-        if (getClass() != obj.getClass()) // Se obj não for da mesma classe, não é o mesmo user
-        return false;
-        User other = (User) obj; // cast do obj
-        if (id != other.id) // Se houver id igual, user é igual
-        return false;
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        if (id != other.id)
+            return false;
         return true;
     }
     
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", nome=" + nome + ", morada=" + morada + ", email=" + email + ", tipo=" + tipo
-                + ", mediaCardio=" + mediaCardio + ", caloriasDiarias=" + caloriasDiarias + "]";
-    }
+
     
     
+
     /* Criar método calcular calorias em funcao do tipo */
     /* imcompleto */
     public int calculaCalorias(){
-        int n = 2000;
-        int a = n / 10;
-        int o = n / 4;
-        switch (this.tipo) {
-            case 'p':
-                return n + o;
-            case 'a':
-                return n + a; 
-            default:
-                return n;
-        }    
+        // 10*peso+6.25*altura-5*edad-161 F 
+        return 10*peso+6.25*altura-5*edad+5; // M
     }
 }
